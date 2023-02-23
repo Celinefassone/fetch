@@ -4,6 +4,14 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: auto;
+  margin: auto;
+}
+
+.second-container {
+  display: flex;
   height: 100vh;
   background-color: black;
 }
@@ -13,13 +21,35 @@ body {
   width: 50vw;
 }
 
+.image {
+  display: flex;
+  height: 30vh;
+  background-color: rgb(64, 175, 239);
+}
+
 .image-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.content {
+.description {
+  display: flex;
+  height: 18vh;
+  background-color: #fbe540;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.description-text {
+  color: #000000;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0.5em;
+}
+
+.second-content {
   display: flex;
   width: 50vw;
   flex-direction: column;
@@ -40,12 +70,79 @@ body {
   height: auto;
 }
 
+.content-list {
+  display: flex;
+  background-color: #fbe540;
+  justify-content: center;
+}
+
+.listbox {
+  list-style: none;
+  color: #fbe540;
+  width: 99%;
+  margin: 0px;
+}
+
+.list {
+  height: 100px;
+  width: 880px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 15px;
+  justify-content: space-between;
+  background-color: #000000;
+}
+
+.list-img {
+  height: 100px;
+  width: 100px;
+}
+
+.list-text {
+  font-size: 20px;
+  width: 300px;
+}
+
+.content-grid {
+  background-color: #fbe540;
+  justify-content: center;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  height: auto;
+}
+
+.grid {
+  flex-basis: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background-color: black;
+  height: 220px;
+  margin: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.grid-text {
+  font-size: 18px;
+  background-color: black;
+  color: yellow;
+  padding: 10px;
+  margin: 0px;
+  width: 100%;
+}
+
 /*
   ********* MEDIA STYLES *********
 */
 
 @media (max-width: 768px) {
-  .container {
+  .second-container {
     flex-direction: column;
   }
 
@@ -55,7 +152,7 @@ body {
     width: 100vw;
   }
 
-  .content {
+  .second-content {
     display: flex;
     height: 50vh;
     width: 80vw;
@@ -73,5 +170,51 @@ body {
   .content-summary {
     height: 20vh;
     overflow-y: scroll;
+  }
+
+  .container {
+    margin: 0;
+    width: 100vw;
+  }
+
+  .listbox {
+    padding: 0;
+  }
+
+  .list {
+    width: 99%;
+    display: flex;
+    margin: 5px;
+  }
+
+  .list-text {
+    margin: 25px;
+  }
+}
+
+@media (min-width: 368px) {
+  .content-grid {
+    gap: 0px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 568px) {
+  .content-grid {
+    gap: 0px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .content-grid {
+    gap: 0px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .content-grid {
+    gap: 0px;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
