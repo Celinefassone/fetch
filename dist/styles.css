@@ -50,6 +50,17 @@ body {
   margin: 0.5em;
 }
 
+.searchbar-container {
+  display: flex;
+  position: absolute;
+  bottom: 5px;
+  left: 60px;
+}
+.button-searchbar {
+  background-color: #2497ef;
+  cursor: pointer;
+}
+
 .button-container {
   display: flex;
   position: absolute;
@@ -225,6 +236,10 @@ body {
 
   .button-container {
     right: 20px;
+  }
+
+  .searchbar-container {
+    left: 20px;
   }
 }
 
