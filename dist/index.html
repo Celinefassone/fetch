@@ -7,55 +7,61 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="description">
-        <p class="description-text">BATMAN BEYOND</p>
-        <p class="description-text">RATING: 8.1</p>
-        <div class="searchbar-container">
-          <label class="searchbar"></label>
-          <input
-            class="input"
-            type="text"
-            name="searchInputName"
-            id="searchbar"
-            placeholder="Search"
-          />
-          <button
-            class="button-searchbar"
-            type="button"
-            id="submitButton"
-          ></button>
+    <main role="main" class="container">
+      <section class="header-container">
+        <header class="header">
+          <h1 class="header-title">BATMAN BEYOND</h1>
+          <p class="header-text">RATING: 8.1</p>
+        </header>
+
+        <div class="header-tools">
+          <div class="searchbar-container">
+            <input
+              class="input"
+              type="text"
+              name="searchInputName"
+              id="searchbar"
+              placeholder="Search"
+            />
+            <button class="button-searchbar" type="button" id="submitButton">
+              Search
+            </button>
+          </div>
+
+          <div class="button-container">
+            <button
+              class="button-list tab-name active"
+              type="button"
+              id="button-list"
+              data-tab="1"
+            ></button>
+            <button
+              class="button-grid tab-name"
+              type="button"
+              id="button-grid"
+              data-tab="2"
+            ></button>
+          </div>
         </div>
-        <div class="button-container">
-          <button
-            class="button-list tab-name active"
-            type="button"
-            id="button-list"
-            data-tab="1"
-          ></button>
-          <button
-            class="button-grid tab-name"
-            type="button"
-            id="button-grid"
-            data-tab="2"
-          ></button>
-        </div>
-      </div>
+      </section>
+
       <div class="image">
         <img
           class="image-img"
           src="https://static.tvmaze.com/uploads/images/original_untouched/4/10842.jpg"
         />
       </div>
+
       <div class="tab-content active" data-content="1">
         <div class="content-list">
           <ul class="listbox" id="listbox"></ul>
         </div>
       </div>
+
       <div class="tab-content" data-content="2">
         <div class="content-grid" id="contentgrid"></div>
       </div>
-    </div>
+    </main>
     <script type="text/javascript" src="/javascript.js"></script>
   </body>
 </html>

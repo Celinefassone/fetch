@@ -21,40 +21,40 @@ const createRequest = function (search) {
 const renderList = function (film) {
   const element = document.createElement("li");
   element.classList.add("list");
+
   element.innerHTML = `
-  <a class="list-anchor" href="/preview.html">
-  <div class="list-img-container">
-  <img class="list-img" 
-  src="${film.show.image.original}"/>
-</div>
-<div class="list-text-container">
-  <p class="list-text"> ${film.show.name} </p>
-  <p class="list-text"> ${
-    film.show.rating.average ? "rating: " + film.show.rating.average : "unrated"
-  } </p>
-  </div>
-  </a>
-  `;
+  <a class="list-anchor" href="/preview.html?film=">
+    <div class="list-img-container">
+      <img class="list-img" 
+      src="${film.show.image.original}"/>
+    </div>
+    <div class="list-text-container">
+      <p class="list-text"> ${film.show.name} </p>
+      <p class="list-text"> ${
+        film.show.rating.average
+          ? "rating: " + film.show.rating.average
+          : "unrated"
+      } </p>
+    </div>
+  </a>`;
+
   return element;
 };
 
 const renderGrid = function (film) {
   const element = document.createElement("div");
   element.innerHTML = `
-<a href="/preview.html">
-            <div
-              class="grid"
-              style="
-                background-image: url('${film.show.image.original}');
-              "
-            >
-              <p class="grid-text">Title: ${film.show.name} | ${
+  <a href="/preview.html">
+    <div
+      class="grid"
+      style="background-image: url('${film.show.image.original}');"
+    >
+    <p class="grid-text">Title: ${film.show.name} | ${
     film.show.rating.average ? "Rating " + film.show.rating.average : "Unrated"
   } </p>
-            </div>
-          </a> 
+    </div>
+  </a>`;
 
-`;
   return element;
 };
 

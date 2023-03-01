@@ -33,29 +33,42 @@ body {
   object-fit: cover;
 }
 
-.description {
+.header-container {
   display: flex;
-  height: 25vh;
   background-color: #fbe540;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
-.description-text {
+.header {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.header-title, .header-text {
   color: #000000;
-  font-size: 25px;
   font-weight: bold;
-  margin: 0.3em;
+  margin: 0;
+}
+
+.header-title {
+  font-size: 45px;
+}
+
+.header-text {
+  font-size: 25px;
+}
+
+.header-tools {
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
 .searchbar-container {
   display: flex;
-  position: absolute;
-  bottom: 5px;
-  left: 60px;
 }
+
 .button-searchbar {
   background-color: #2497ef;
   cursor: pointer;
@@ -63,9 +76,6 @@ body {
 
 .button-container {
   display: flex;
-  position: absolute;
-  right: 60px;
-  bottom: 0px;
 }
 
 .button-list {
@@ -149,6 +159,8 @@ body {
 .list-text {
   font-size: 20px;
   margin: 0px;
+  display: flex;
+  align-items: center;
 }
 
 .list-text-container {
@@ -159,9 +171,13 @@ body {
 }
 
 .list-anchor {
+  color: white;
+  text-decoration: none;
   display: flex;
-  height: 100px;
-  align-items: center;
+}
+
+.list-anchor:hover {
+  color: red;
 }
 
 .content-grid {
@@ -247,9 +263,7 @@ body {
     margin: 5px;
   }
 
-  .list-text {
-    padding: 10px;
-  }
+  .list-text {}
 
   .list-text-container {
     display: flex;
