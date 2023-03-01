@@ -35,7 +35,7 @@ body {
 
 .description {
   display: flex;
-  height: 18vh;
+  height: 25vh;
   background-color: #fbe540;
   flex-direction: column;
   align-items: center;
@@ -47,7 +47,7 @@ body {
   color: #000000;
   font-size: 25px;
   font-weight: bold;
-  margin: 0.5em;
+  margin: 0.3em;
 }
 
 .searchbar-container {
@@ -130,21 +130,38 @@ body {
   height: 100px;
   width: 880px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   margin: 15px;
-  justify-content: space-between;
+  flex-direction: row;
   background-color: #000000;
 }
 
-.list-img {
+.list-img-container {
   height: 100px;
   width: 100px;
 }
 
+.list-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .list-text {
   font-size: 20px;
-  width: 300px;
+  margin: 0px;
+}
+
+.list-text-container {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  padding: 20px;
+}
+
+.list-anchor {
+  display: flex;
+  height: 100px;
+  align-items: center;
 }
 
 .content-grid {
@@ -231,7 +248,14 @@ body {
   }
 
   .list-text {
-    margin: 25px;
+    padding: 10px;
+  }
+
+  .list-text-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 200px;
   }
 
   .button-container {

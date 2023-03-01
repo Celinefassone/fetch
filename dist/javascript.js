@@ -22,14 +22,18 @@ const renderList = function (film) {
   const element = document.createElement("li");
   element.classList.add("list");
   element.innerHTML = `
-  <a href="/preview.html">
+  <a class="list-anchor" href="/preview.html">
+  <div class="list-img-container">
   <img class="list-img" 
   src="${film.show.image.original}"/>
-  <a>
+</div>
+<div class="list-text-container">
   <p class="list-text"> ${film.show.name} </p>
   <p class="list-text"> ${
     film.show.rating.average ? "rating: " + film.show.rating.average : "unrated"
   } </p>
+  </div>
+  </a>
   `;
   return element;
 };
@@ -65,8 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const contentgridElement = document.querySelector("#contentgrid");
   const tabs = document.querySelectorAll(".tab-name");
   const tabContent = document.querySelectorAll(".tab-content");
-  // const searchElement = document.querySelector(".input");
-  // const submitButton = document.querySelector("#submitButton");
+  const searchElement = document.querySelector(".input");
+  const submitButton = document.querySelector("#submitButton");
 
   let xhr;
   xhr = createRequest();
@@ -78,10 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // submitButton.addEventListener("click", function () {
-  //   xhr = createRequest(searchElement.value);
-  //   xhr.send();
-  // });
+  submitButton.addEventListener("click", function () {
+    xhr = createRequest(searchElement.value);
+    xhr.send();
+  });
 
   tabs.forEach(function (tab) {
     tab.addEventListener("click", function (event) {
