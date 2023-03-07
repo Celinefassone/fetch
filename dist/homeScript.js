@@ -1,8 +1,6 @@
 const defaultShows = "batman";
-const searchElement = document.querySelector(".input");
 
-const createRequest = function (search) {
-  search = searchElement || defaultShows;
+const createRequest = function () {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", `https://api.tvmaze.com/search/shows?q=${defaultShows}`);
   xhr.responseType = "json";
@@ -22,7 +20,9 @@ const renderList = function (film) {
   element.classList.add("list");
 
   element.innerHTML = `
-  <a class="list-anchor" href="/preview.html?film=">
+  <a class="list-anchor" href="/preview.html?thetvdb=${
+    film.show.externals.thetvdb
+  }">
     <div class="list-img-container">
       <img class="list-img" 
       src="${film.show.image.original}"/>
@@ -43,7 +43,9 @@ const renderList = function (film) {
 const renderGrid = function (film) {
   const element = document.createElement("div");
   element.innerHTML = `
-  <a href="/preview.html">
+  <a class="list-anchor" href="/preview.html?thetvdb=${
+    film.show.externals.thetvdb
+  }">
     <div
       class="grid"
       style="background-image: url('${film.show.image.original}');"
@@ -75,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const contentgridElement = document.querySelector("#contentgrid");
   const tabs = document.querySelectorAll(".tab-name");
   const tabContent = document.querySelectorAll(".tab-content");
-  const searchFormElement = document.querySelector("#searchForm");
+  // const searchFormElement = document.querySelector("#searchForm");
 
   let xhr;
   xhr = createRequest();
@@ -92,10 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  searchFormElement.addEventListener("submit", function () {
-    console.log(searchFormElement);
-    window.location.href = `http://localhost/preview.html?q=${this.searchFormElement.value}`;
-  });
+  // searchFormElement.addEventListener("submit", function () {
+  //   window.location.href = `http://localhost/preview.html?q=${this.searchFormElement.value}`;
+  // });
 
   tabs.forEach(function (tab) {
     tab.addEventListener("click", function (event) {
