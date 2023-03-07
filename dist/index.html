@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>List page</title>
     <link rel="stylesheet" href="/styles.css" />
+    <script type="text/javascript" src="/homeScript.js"></script>
   </head>
   <body>
     <main role="main" class="container">
@@ -15,18 +16,18 @@
         </header>
 
         <div class="header-tools">
-          <div class="searchbar-container">
+          <form id="searchForm" class="searchbar-container">
             <input
               class="input"
               type="text"
-              name="searchInputName"
+              name="searchInput"
               id="searchbar"
               placeholder="Search"
             />
-            <button class="button-searchbar" type="button" id="submitButton">
+            <button class="button-searchbar" type="submit" id="submitButton">
               Search
             </button>
-          </div>
+          </form>
 
           <div class="button-container">
             <button
@@ -62,6 +63,5 @@
         <div class="content-grid" id="contentgrid"></div>
       </div>
     </main>
-    <script type="text/javascript" src="/javascript.js"></script>
   </body>
 </html>

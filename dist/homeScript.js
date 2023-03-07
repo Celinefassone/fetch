@@ -4,8 +4,7 @@ const searchElement = document.querySelector(".input");
 const createRequest = function (search) {
   search = searchElement || defaultShows;
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://api.tvmaze.com/search/shows?q=batman");
-  // xhr.open("GET", `https://api.tvmaze.com/search/shows?q=${search}`);
+  xhr.open("GET", `https://api.tvmaze.com/search/shows?q=${defaultShows}`);
   xhr.responseType = "json";
   xhr.onload = function () {
     if (xhr.status === 200) {
@@ -14,7 +13,7 @@ const createRequest = function (search) {
       console.log("Error: " + xhr.status);
     }
   };
-  xhr.send();
+
   return xhr;
 };
 
@@ -58,6 +57,13 @@ const renderGrid = function (film) {
   return element;
 };
 
+const renderNotFound = function () {
+  const element = document.createElement("div");
+  element.innerHTML = `<h2 style="color: black; text-align: center;">No results</h2>`;
+
+  return element;
+};
+
 const clearClasses = function (iterator) {
   iterator.forEach(function (element) {
     element.classList.remove("active");
@@ -69,22 +75,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const contentgridElement = document.querySelector("#contentgrid");
   const tabs = document.querySelectorAll(".tab-name");
   const tabContent = document.querySelectorAll(".tab-content");
-  const searchElement = document.querySelector(".input");
-  const submitButton = document.querySelector("#submitButton");
+  const searchFormElement = document.querySelector("#searchForm");
 
   let xhr;
   xhr = createRequest();
 
   xhr.onload = function () {
-    xhr.response.forEach(function (film) {
-      listboxElement.appendChild(renderList(film));
-      contentgridElement.appendChild(renderGrid(film));
-    });
+    if (xhr.response.length) {
+      xhr.response.forEach(function (film) {
+        listboxElement.appendChild(renderList(film));
+        contentgridElement.appendChild(renderGrid(film));
+      });
+    } else {
+      listboxElement.appendChild(renderNotFound());
+      contentgridElement.appendChild(renderNotFound());
+    }
   };
 
-  submitButton.addEventListener("click", function () {
-    xhr = createRequest(searchElement.value);
-    xhr.send();
+  searchFormElement.addEventListener("submit", function () {
+    console.log(searchFormElement);
+    window.location.href = `http://localhost/preview.html?q=${this.searchFormElement.value}`;
   });
 
   tabs.forEach(function (tab) {
@@ -101,4 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.add("active");
     });
   });
+
+  xhr.send();
 });

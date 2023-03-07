@@ -44,7 +44,8 @@ body {
   text-align: center;
 }
 
-.header-title, .header-text {
+.header-title,
+.header-text {
   color: #000000;
   font-weight: bold;
   margin: 0;
@@ -171,7 +172,7 @@ body {
 }
 
 .list-anchor {
-  color: white;
+  color: #fbe540;
   text-decoration: none;
   display: flex;
 }
@@ -211,6 +212,10 @@ body {
   padding: 10px;
   margin: 0px;
   width: 100%;
+}
+
+.grid-text:hover {
+  color: red;
 }
 
 /*
@@ -263,7 +268,8 @@ body {
     margin: 5px;
   }
 
-  .list-text {}
+  .list-text {
+  }
 
   .list-text-container {
     display: flex;
