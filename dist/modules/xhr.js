@@ -1,4 +1,7 @@
 export const createRequest = function () {
+  const defaultShows = "batman";
+  const idString = window.location.search;
+  const idValue = idString.split("=")[1];
   var xhr = new XMLHttpRequest();
   xhr.open("GET", `https://api.tvmaze.com/search/shows?q=${defaultShows}`);
   xhr.responseType = "json";
