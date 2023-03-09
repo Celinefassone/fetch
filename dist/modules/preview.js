@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const imageElement = document.querySelector("#image-box");
   const descriptionElement = document.querySelector("#second-content");
 
+  let xhr;
+  xhr = createRequest();
 
   xhr.onload = function () {
     if (xhr.response) {
@@ -18,5 +20,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-
+  xhr.send();
 });
