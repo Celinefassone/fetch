@@ -1,9 +1,14 @@
-import { createRequest } from "./xhr.js";
-import { renderList } from "./renderList.js";
-import { renderGrid } from "./renderGrid.js";
-import { clearClasses } from "./clearClasses.js";
+import { createRequest } from "/scripts/modules/xhr.js";
+import { renderList } from "/scripts/modules/home/renderList.js";
+import { renderGrid } from "/scripts/modules/home/renderGrid.js";
+import { clearClasses } from "/scripts/modules/home/clearClasses.js";
 
-export const request = function(listboxElement, contentgridElement, tabs, tabContent) {
+document.addEventListener("DOMContentLoaded", function () {
+  const listboxElement = document.querySelector("#listbox");
+  const contentgridElement = document.querySelector("#contentgrid");
+  const tabs = document.querySelectorAll(".tab-name");
+  const tabContent = document.querySelectorAll(".tab-content");
+
   let xhr;
   xhr = createRequest();
 
@@ -35,4 +40,4 @@ export const request = function(listboxElement, contentgridElement, tabs, tabCon
   });
 
   xhr.send();
-}
+});
