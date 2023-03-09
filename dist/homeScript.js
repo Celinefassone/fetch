@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // });
 
   tabs.forEach(function (tab) {
-    tab.addEventListener("click", function (event) {
+    tab.addEventListener("click", function () {
       clearClasses(tabs);
       clearClasses(tabContent);
 
